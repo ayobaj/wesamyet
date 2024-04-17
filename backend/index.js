@@ -1,10 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRouter from './routes/userRouter.js';
 
 const port = 5000;
 const app = express();
 dotenv.config();
+
+app.use('/backend/user', userRouter)
+
+
+
+
+
+
 
 
 // connected the backend to MONGODB
