@@ -2,12 +2,18 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/userRouter.js';
+import authenticateRouter from './routes/authenticateRouter.js'
 
 const port = 5000;
 const app = express();
 dotenv.config();
+app.use(express.json());
 
-app.use('/backend/user', userRouter)
+
+
+app.use('/backend/user', userRouter);
+app.use('/backend/authenticate', authenticateRouter)
+
 
 
 
