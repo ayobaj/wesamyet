@@ -7,13 +7,25 @@ import authenticateRouter from './routes/authenticateRouter.js'
 const port = 5000;
 const app = express();
 dotenv.config();
-app.use(express.json());
 
+app.use(express.json());
 
 
 app.use('/backend/user', userRouter);
 app.use('/backend/authenticate', authenticateRouter)
 
+app.use((err, req, res, next) => {
+
+    const statusCode = err.statusCode || 500;
+
+    const message = err.message || 'Server Error';
+
+    return res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message
+    })
+})
 
 
 

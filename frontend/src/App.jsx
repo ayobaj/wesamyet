@@ -9,7 +9,7 @@ import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
-    <div className="">
+    <div className="font-tiltneon backgroundcolor h-screen">
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
