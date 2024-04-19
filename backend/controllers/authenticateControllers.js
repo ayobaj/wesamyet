@@ -47,10 +47,12 @@ export const signin = async (req, res, next) => {
 
         // cancellation of the return of password to the user
         const {password: pass, ...other} = validUser._doc;
-
+        
+        //Adding cookie to the browser
         res.cookie('access_token', token, {httpOnly: true}).status(200).json(other)
 
     } catch(error) { 
+        
         next(error)
     }
 
