@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { IoSearchSharp } from "react-icons/io5";
+import {useSelector} from 'react-redux';
 
 const NavBar = () => {
+
+    const {currentUser} = useSelector(state => state.user)
+
     return (
     <div className="bg-slate-200 shadow-md ">
 
@@ -31,8 +35,8 @@ const NavBar = () => {
                 <li className="hidden sm:inline text-purple-400 font-bold hover:underline">About</li>
                 </Link>
 
-                <Link to="/sign-in">
-                <li className=" sm:inline text-purple-400 font-bold hover:underline">{''}Sign in</li>
+                <Link to="/profile">
+                    {currentUser ? (<img className="rounded-full w-7  object-coverh-7" src={currentUser.avatar} alt="profile"/>) : (<li className=" sm:inline text-purple-400 font-bold hover:underline">{''}Sign in</li>)}
                 </Link>
 
             </ul>
