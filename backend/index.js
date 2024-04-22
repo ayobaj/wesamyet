@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRouter from './routes/userRouter.js';
 import authenticateRouter from './routes/authenticateRouter.js';
 import cookieParser from 'cookie-parser';
+import listingRouter from './routes/listingRouter.js'
 
 const port = 5000;
 const app = express();
@@ -15,7 +16,12 @@ app.use(cookieParser());
 
 
 app.use('/backend/user', userRouter);
-app.use('/backend/authenticate', authenticateRouter)
+
+app.use('/backend/authenticate', authenticateRouter);
+
+app.use('/backend/listing', listingRouter);
+
+
 
 app.use((err, req, res, next) => {
 
