@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import {getStorage, uploadBytesResumable, ref, getDownloadURL} from 'firebase/storage'
 import { app } from "../fireBase";
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutStart } from "../Redux/User/userSlice";
+import {Link}  from 'react-router-dom'
 
 
     const Profile = () => {
@@ -102,7 +103,8 @@ import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailur
             try{
                 dispatch(deleteUserStart());
 
-                const res = await fetch(`/backend/user/delete/${currentUser._id}`, {
+                const res = await fetch(`/backend/user/delete/${currentUser._id}`,
+                {
                     method: 'DELETE',
                 });
 
@@ -171,6 +173,7 @@ import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailur
 
                 <button className="bg-purple-400 text-white uppercase rounded-lg p-3 hover:opacity-80 disabled:opacity-86">{loading ? 'loading' : 'update'}</button>
 
+                <Link className="bg-blue-700  text-white p-3 rounded-lg uppercase text-center hover:opacity-85" to={"/create-listing"}>create listing</Link>
             </form>
 
             <div className=" flex justify-between mt-5">

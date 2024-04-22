@@ -1,6 +1,6 @@
 import Listing from "../models/listingModel.js"
 
-export  const createListing = async (res, req, next) => {
+export const createListing = async (req, res, next) => {
 
     try{
 
