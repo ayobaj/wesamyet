@@ -20,7 +20,11 @@ import {Link}  from 'react-router-dom'
 
         const [formData, setFormData] = useState({});
 
-        const [updateSuccess, setUpdateSuccess] = useState(false)
+        const [updateSuccess, setUpdateSuccess] = useState(false);
+
+        const [showListingError, setShowListingError] = useState(false);
+
+        const [userListing, setUserListing] = useState([]);
 
         const dispatch = useDispatch()
 
@@ -142,6 +146,53 @@ import {Link}  from 'react-router-dom'
                 dispatch(deleteUserFailure(error.message));
             }
         };
+
+        //function to show listing
+
+        const handleShowListing = async () => {
+            try {
+                setShowListingError(false);
+        
+                const res = await fetch(`/backend/user/listing/${currentUser._id}`);
+        
+                const data = await res.json();
+        
+                if (data.success === false) {
+                    setShowListingError(true);
+                    return;
+                }
+        
+                setUserListing(data);
+        
+            } catch (error) {
+                setShowListingError(true);
+            }
+        };
+        
+
+
+        const handleListingDelete = async (listingId) => {
+            try{
+
+                const res = await fetch(`/backend/listing/delete/${listingId}`, {
+
+                    method: 'DELETE',
+
+                });
+
+                const data = await res.json();
+
+                if(data.success === false) {
+                    console.log(data.message);
+                    return;
+                }
+
+                setUserListing((prev) => prev.filter((listing) => listing._id !== listingId))
+
+            } catch (error){
+                console.log('error.message')
+            }
+        }
         
     return (
         <div className="max-w-lg mx-auto">
@@ -184,6 +235,53 @@ import {Link}  from 'react-router-dom'
             <p className="mt-5 text-red-700">{error ? error : ''}</p>
 
             <p className="mt-5 text-red-700">{ updateSuccess ? ' Update Successful !' : ''}</p>
+
+            <button onClick={handleShowListing} className="w-full">View Listings</button>
+
+            <p className="text-red-700 mt-6">{showListingError ? 'Listings can not be viewed' : ''}</p>
+
+            {userListing && userListing.length > 0 && (
+
+    <div className="flex flex-col gap-4">
+
+        <h1 className="text-center mt-7 text-2xl font-bold">Your Listings</h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+            {userListing.map((listing) => (
+
+                <div key={listing._id} className="border rounded-lg p-3">
+
+                    <Link to={`/listing/${listing._id}`}>
+
+                        <div className="aspect-w-3 aspect-h-2 mb-4">
+                            <img
+                                src={listing.imageUrls[0]} // Assuming the first image is the cover image
+                                alt="listing cover"
+                                className="object-cover rounded-lg"
+                            />
+                        </div>
+
+                        <h2 className="text-xl font-semibold truncate mb-2">{listing.name}</h2>
+
+                        <p className="text-sm text-gray-600 mb-2">{listing.description}</p>
+
+                    </Link>
+                    
+                    <div className="flex justify-between items-center">
+                        <button onClick={() => handleListingDelete(listing._id)} className="text-red-700 uppercase">
+                            Delete
+                        </button>
+                        <Link to={`/edit-listing/${listing._id}`}>
+                            <button className="text-red-700 uppercase">Edit</button>
+                        </Link>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+)}
+
         </div>
     )
     }

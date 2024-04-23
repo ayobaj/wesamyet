@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import NavBar from "./components/NavBar";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
+import EditListing from "./pages/EditListing";
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     <div className="font-tiltneon backgroundcolor h-screen">
       <NavBar/>
       <Routes>
+        
         <Route path="/" element={<Home/>}/>
         <Route path="/sign-in" element={<SignIn/>}/>
         <Route path="/sign-up" element={<SignUp/>}/>
@@ -22,6 +24,7 @@ const App = () => {
         <Route element={<PrivateRoute/>}>
           <Route path="/profile" element={<Profile/>}/> 
           <Route path="/create-listing" element={<CreateListing/>}/>
+          <Route path="/edit-listing/:listingId" element={<EditListing/>}/>
         </Route>
 
       </Routes>
