@@ -35,27 +35,26 @@ const EditListing = () => {
 
     const params = useParams();
 
-    useEffect(()=>{
-
+    useEffect(() => {
         const fetchListing = async () => {
-
-        const listingId = params.listingId;
-
-        const res = await fetch(`/backend/listing/get/${listingId}`);
-
-        const data = await res.json();
-
-        if(data.success === false) {
-            setError(data.message);
-        }
-
-        setFormData(data);
-
+            try {
+                const listingId = params.listingId;
+                const res = await fetch(`/backend/listing/get/${listingId}`);
+                const data = await res.json();
+                
+                if (data.success === false) {
+                    setError(data.message);
+                } else {
+                    setFormData(data);
+                }
+            } catch (error) {
+                setError(error.message);
+            }
         };
-
+    
         fetchListing();
-
-    })
+    }, [params.listingId]);
+    
 
     const handleImageUpload = () => {
         if (files.length > 0 && files.length + formData.imageUrls.length < 8) {
