@@ -14,7 +14,7 @@ import Search from "./pages/Search";
 
 const App = () => {
   return (
-    <div className="font-tiltneon backgroundcolor h-full">
+    <div className="font-tiltneon h-full">
       <NavBar/>
       <Routes>
         

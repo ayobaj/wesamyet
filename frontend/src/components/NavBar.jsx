@@ -39,7 +39,7 @@ const NavBar = () => {
     
 
     return (
-    <div className="bg-slate-200 shadow-md ">
+    <div className=" shadow-md ">
 
         <div className="flex justify-between max-w-6xl mx-auto p-3 items-center">
 
