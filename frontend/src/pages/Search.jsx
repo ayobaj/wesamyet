@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ListingCard from '../components/ListingCard';
 
 
 const  Search = () => {
@@ -17,7 +18,7 @@ const  Search = () => {
     const [loading, setLoading] = useState(false);
     const [listings, setListings] = useState([]);
     const [showMore, setShowMore] = useState(false);
-    console.log(listings)
+
 
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
@@ -261,9 +262,36 @@ const  Search = () => {
     </div>
 
         <div className='flex-1'>
-        <h1 className='text-2xl font-semibold border-b p-3 mt-5'>
-            Listing results:
-        </h1>
+
+            <h1 className='text-2xl font-semibold border-b p-3 mt-5'>
+                Listing results:
+            </h1>
+
+            <div className='p-7 flex-wrap gap-4'>
+                {!loading && listings.length === 0 && (
+                    <p className='text-red-700'> Listing Not Found!</p>
+                )}
+
+                {
+                    loading && (
+                        <p className='text-center'>Loading...</p>
+                    )
+                }
+
+                {
+                    !loading && listings && listings.map((listing) =>  <ListingCard key={listing._id} listing={listing}/>)
+
+                }
+
+            {showMore && (
+                    <button
+                        onClick={onShowMoreClick}
+                        className='text-green-700 hover:underline p-7 text-center w-full'
+                    >
+                        Show more
+                    </button>
+                    )}
+            </div>
         </div>
 
     </div>
