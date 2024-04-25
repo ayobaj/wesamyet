@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from "../Redux/User/userSlice";
 import OAuth from "../components/OAuth";
+import bgimg from "../assets/bgimg.jpg"
 
 
 const SignIn = () => {
@@ -68,38 +69,41 @@ const SignIn = () => {
 
 
     return (
-        <div className=" p-3 max-w-lg mx-auto ">
 
-            <h1 className="text-3xl font-semibold text-center my-6 text-purple-800">Sign In</h1>
+        <div className="  h-screen " style={{ backgroundImage: `url(${bgimg})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+
+            <div className="p-3 max-w-lg mx-auto pt-8 md:pt-[100px]">
+
+            <h1 className="text-3xl md:text-[50px] font-bold text-center my-6 text-white uppercase " >Sign In</h1>
 
 
-            <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
+    <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
 
-                <input type="text" placeholder="username" onChange={handleChange}
-                className="border p-3 rounded-lg focus:outline-none" id="username"/>
+        <input type="text" placeholder="username" onChange={handleChange}
+        className="border p-3 rounded-lg focus:outline-none" id="username"/>
 
-                <input type="password" placeholder="password" onChange={handleChange}
-                className="border p-3 rounded-lg focus:outline-none" id="password"/>
+        <input type="password" placeholder="password" onChange={handleChange}
+        className="border p-3 rounded-lg focus:outline-none" id="password"/>
 
-                <button disabled={loading} className="bg-purple-400 text-white p-3 rounded-lg uppercase 
-                hover:opacity-80 disabled:opacity-80" >{loading ? 'loading...' : 'sign in'}</button>
+        <button disabled={loading} className=" hover:bg-orange-300 bg-orange-400 text-white p-3 rounded-lg uppercase 
+        " >{loading ? 'loading...' : 'sign in'}</button>
 
-                <OAuth/>
-            </form>
+        <OAuth/>
+    </form>
 
-            <div className="flex gap-2 mt-5" >
+    <div className="flex gap-2 mt-5 items-center justify-between" >
 
-                <p>No account?</p>
-                <Link to={"/sign-up"}>
-                    <span className="text-purple-800 hover:underline">Sign up</span>
-                </Link>
-                
+        <p className="text-white font-bold bg-orange-400  p-3 rounded-xl ">No account?</p>
+        <Link to={"/sign-up"}>
+            <span className="text-white hover:bg-orange-300 bg-orange-600 font-bold px-5 py-3 rounded-xl">Sign up</span>
+        </Link>
+    </div>
+
+    {error && <p className="text-green-300 font-bold text-xl uppercase mt-5">{error}</p>}
+                </div>
+
             </div>
-
-            {error && <p className="text-red-900 mt-5">{error}</p>}
-
-        </div>
-    )
-    }
+        )
+        }
 
 export default SignIn;

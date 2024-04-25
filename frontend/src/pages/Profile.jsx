@@ -195,9 +195,12 @@ import {Link}  from 'react-router-dom'
         }
         
     return (
-        <div className="max-w-lg mx-auto">
 
-            <h1 className="text-3xl font-semibold text-center my-6"></h1>
+        <div className="">
+
+            <div className="max-w-lg mx-auto">
+
+            <h1 className="text-3xl font-semibold text-center "></h1>
 
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
 
@@ -216,15 +219,15 @@ import {Link}  from 'react-router-dom'
                     ) : null}
                 </p>
 
-                <input onChange={handleChange} defaultValue = {currentUser.username} placeholder="username" type="text" className="border p-3 rounded-lg focus:outline-none" id="username"/>
+                <input onChange={handleChange} defaultValue = {currentUser.username} placeholder="username" type="text" className="border-[10px] p-3 rounded-lg focus:outline-none" id="username"/>
 
-                <input onChange={handleChange} defaultValue = {currentUser.email} placeholder="email" type="email" className="border p-3 rounded-lg focus:outline-none" id="email"/>
+                <input onChange={handleChange} defaultValue = {currentUser.email} placeholder="email" type="email" className="border-[10px] p-3 rounded-lg focus:outline-none" id="email"/>
                 
-                <input onChange={handleChange} defaultValue = {currentUser.password} placeholder="password" type="password" className="border p-3 rounded-lg focus:outline-none " id="password"/>
+                <input onChange={handleChange} defaultValue = {currentUser.password} placeholder="password" type="password" className="border-[10px] p-3 rounded-lg focus:outline-none " id="password"/>
 
-                <button className="bg-purple-400 text-white uppercase rounded-lg p-3 hover:opacity-80 disabled:opacity-86">{loading ? 'loading' : 'update'}</button>
+                <button className="bg-green-600 text-white uppercase rounded-lg p-3 hover:opacity-80 disabled:opacity-86">{loading ? 'loading' : 'update'}</button>
 
-                <Link className="bg-blue-700  text-white p-3 rounded-lg uppercase text-center hover:opacity-85" to={"/create-listing"}>create listing</Link>
+                <Link className="bg-orange-400  text-white p-3 rounded-lg uppercase text-center hover:opacity-85" to={"/create-listing"}>create listing</Link>
             </form>
 
             <div className=" flex justify-between mt-5">
@@ -236,27 +239,27 @@ import {Link}  from 'react-router-dom'
 
             <p className="mt-5 text-red-700">{ updateSuccess ? ' Update Successful !' : ''}</p>
 
-            <button onClick={handleShowListing} className="w-full">View Listings</button>
+            <button onClick={handleShowListing} className="w-full font-bold">View Listings</button>
 
             <p className="text-red-700 mt-6">{showListingError ? 'Listings can not be viewed' : ''}</p>
 
             {userListing && userListing.length > 0 && (
 
-    <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
 
-        <h1 className="text-center mt-7 text-2xl font-bold">Your Listings</h1>
+            <h1 className="text-center mt-7 text-2xl font-bold">Your Listings</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="">
 
             {userListing.map((listing) => (
 
-                <div key={listing._id} className="border rounded-lg p-3">
+                <div key={listing._id} className="border-4 rounded-lg p-3 mb-7">
 
                     <Link to={`/listing/${listing._id}`}>
 
-                        <div className="aspect-w-3 aspect-h-2 mb-4">
+                        <div className=" mb-4 gap-8">
                             <img
-                                src={listing.imageUrls[0]} // Assuming the first image is the cover image
+                                src={listing.imageUrls[0]} 
                                 alt="listing cover"
                                 className="object-cover rounded-lg"
                             />
@@ -278,11 +281,12 @@ import {Link}  from 'react-router-dom'
                     </div>
                 </div>
             ))}
-        </div>
-    </div>
-)}
+            </div>
+            </div>
+            )}
+                        </div>
 
-        </div>
+            </div>
     )
     }
 

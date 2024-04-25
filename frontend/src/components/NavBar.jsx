@@ -45,8 +45,8 @@ const NavBar = () => {
 
             <Link to="/">
             <h1 className="font-bold text-sm sm:text-xl flex-wrap">
-                <span className="text-purple-800">Wesam</span>
-                <span className="text-purple-400">Yet</span>
+                <span className="text-orange-500">Wesam</span>
+                <span className="text-green-700">Yet</span>
             </h1>
             </Link>
 
@@ -63,11 +63,11 @@ const NavBar = () => {
             <ul className=" flex space-x-4">
 
                 <Link to="/">
-                <li className="hidden sm:inline text-purple-400 font-bold hover:underline">Home</li>
+                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white border-2 p-3 rounded-2xl ">Home</li>
                 </Link>
 
                 <Link to="/about">
-                <li className="hidden sm:inline text-purple-400 font-bold hover:underline">About</li>
+                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white border-2 p-3 rounded-2xl">About</li>
                 </Link>
 
                 <Link to="/profile">

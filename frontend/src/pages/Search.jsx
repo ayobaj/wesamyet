@@ -261,13 +261,13 @@ const  Search = () => {
 
     </div>
 
-        <div className='flex-1'>
+        <div className=' '>
 
-            <h1 className='text-2xl font-semibold border-b p-3 mt-5'>
-                Listing results:
+            <h1 className='text-2xl font-semibold border-b p-3 mt-5 text-center'>
+                Listing results
             </h1>
 
-            <div className='p-7 flex-wrap gap-4'>
+            <div className='p-7 flex flex-col'>
                 {!loading && listings.length === 0 && (
                     <p className='text-red-700'> Listing Not Found!</p>
                 )}
@@ -278,10 +278,13 @@ const  Search = () => {
                     )
                 }
 
+                <div className='mx-auto md:flex p-7 gap-4 space-y-4 flex-wrap lg:items-center'>
+                    
                 {
-                    !loading && listings && listings.map((listing) =>  <ListingCard key={listing._id} listing={listing}/>)
+                    !loading && listings && listings.map((listing) =>  <ListingCard key={listing._id} listing={listing} />)
 
                 }
+                </div>
 
             {showMore && (
                     <button

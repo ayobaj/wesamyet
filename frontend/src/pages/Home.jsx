@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import bgimg from '../assets/bgimg.jpg';
+import home from '../assets/home.jpeg';
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import SwiperCore from 'swiper';
 import {Navigation} from 'swiper/modules';
-import ListingCard from '../components/ListingCard'
+import ListingCard from '../components/ListingCard';
 
 
 
@@ -55,20 +55,20 @@ const Home = () => {
     console.log(saleListings);
 
     return (
-        <div className="bg-white h-screen md:object-cover" style={{ backgroundImage: `url(${bgimg})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+        <div >
             {/* top */}
-            <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl ">
-                <h1 className="text-blue-700 font-bold text-3xl lg:text-6xl">
+            <div className="flex flex-col gap-6 p-28 px-3 h-screen" style={{ backgroundImage: `url(${home})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                <h1 className="text-white font-bold text-3xl lg:text-6xl lg:mx-auto">
                     Discover Your Dream <br/>
-                    <span className="text-orange-800">Property</span> Today!
+                    <span className="text-orange-400 lg:ml-[70px]">Property</span> Today!
                 </h1>
-                <div className=" text-xs sm:text-sm ">
+                <div className=" text-xs text-white sm:text-sm lg:mx-auto ">
                     Wesamyet is the best property site to acquire your dream property.
                     <br/>
-                    We have property that will meet needs
+                    <span className="lg:ml-[70px]">We have the property that will meet needs</span>
                 </div>
-                <Link className="text-xs sm:text-sm text-blue-700 font-bold hover:underline " to={"/search"}>
-                    Explore dream property....
+                <Link className="lg:mx-auto p-3 rounded-lg w-fit text-xs sm:text-sm text-white font-bold hover:shadow-lg hover:bg-orange-300 bg-orange-400 " to={"/search"}>
+                    Explore dream property
                 </Link>
             </div>
 
@@ -97,7 +97,7 @@ const Home = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4 ">
+                                <div className="flex flex-wrap gap-4">
 
                                     {
                                         offerListings.map((listing) => (
@@ -142,7 +142,7 @@ const Home = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4 ">
+                                <div className="flex md:flex-wrap gap-4 ">
 
                                     {
                                         saleListings.map((listing) => (

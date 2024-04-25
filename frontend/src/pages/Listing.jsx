@@ -86,7 +86,7 @@ return (
                 {
                     listing.imageUrls.map((url) => (
                         <SwiperSlide key={url}>
-                            <div className="h-[550px]" style={{background: `url(${url}) center no-repeat`, backgroundSize: 'cover', }} ></div>
+                            <div className="h-[450px] w-screen" style={{background: `url(${url})`, backgroundSize: 'cover',  backgroundPosition: 'center', }} ></div>
                         </SwiperSlide>
                     ))
                 }
@@ -108,17 +108,17 @@ return (
 
                 <div className='flex gap-4'>
 
-                <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                <p className='bg-red-900 w-full max-w-[200px] text-white text-center py-4  px-4 rounded-md'>
                     {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
                 </p>
 
                 {listing.offer && (
-
-                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-                    <FaNairaSign/>{+listing.regularPrice - +listing.discountPrice} OFF
-                </p>
-
+                    <p className=' bg-green-900 w-full max-w-[200px] text-white flex rounded-md items-center pl-10'>
+                        <FaNairaSign className=""/> {' '}
+                        {(+listing.regularPrice - +listing.discountPrice).toLocaleString('en-NG')} OFF
+                    </p>
                 )}
+
 
             </div>
 
