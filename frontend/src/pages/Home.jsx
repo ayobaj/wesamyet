@@ -97,7 +97,7 @@ const Home = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4">
+                                <div className="flex flex-wrap ml-12 gap-4 lg:ml-1">
 
                                     {
                                         offerListings.map((listing) => (
@@ -119,7 +119,7 @@ const Home = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex flex-wrap gap-4 ">
+                                <div className="flex flex-wrap ml-12 gap-4 lg:ml-1">
 
                                     {
                                         rentListings.map((listing) => (
@@ -142,7 +142,7 @@ const Home = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex md:flex-wrap gap-4 ">
+                                <div className="flex flex-wrap ml-12 gap-4 lg:ml-1 ">
 
                                     {
                                         saleListings.map((listing) => (

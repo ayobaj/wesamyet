@@ -157,7 +157,7 @@ return (
                 )}
 
 
-                {contact && <Contact li3sting={listing}/> }
+                {contact && <Contact listing={listing}/> }
 
 
             </div>
