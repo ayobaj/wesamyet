@@ -4,26 +4,58 @@ import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res, next) => {
-    
-    const {username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
-    const hashedPassword = bcrypt.hashSync(password, 10)
+    try {
+        // Check if username is provided
+        if (!username) {
+            throw { statusCode: 400, message: 'Please provide a username.' };
+        }
 
-    const newUser = new User({username, email, password:hashedPassword});
+        // Check if email is provided and valid
+        if (!email) {
+            throw { statusCode: 400, message: 'Please provide an email address.' };
+        }
 
-    try{
-        
-        await newUser.save()
-    
-        res.status(201).json('user created successfully')
+        // Check if password is provided
+        if (!password) {
+            throw { statusCode: 400, message: 'Please provide a password.' };
+        }
+
+        // Check password strength
+        if (password.length < 6) {
+            throw { statusCode: 400, message: 'Password must be at least 6 characters long.' };
+        }
+
+        // Check if the user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            throw { statusCode: 400, message: 'Email address is already registered.' };
+        }
+
+        const existingUserName = await User.findOne({username});
+        if(existingUserName){
+            throw {statusCode: 400, message: 'username exist already'};
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create a new user
+        const newUser = new User({ username, email, password: hashedPassword });
+
+        // Save the user to the database
+        await newUser.save();
+
+        // Respond with success message
+        return res.status(201).json({ success: true, message: 'User created successfully.' });
 
     } catch (error) {
-
-        next(error)
+        // Pass the error to the error handler middleware
+        next(error); // This line ensures that the error is passed to the error handling middleware
     }
+};
 
-
-}
 
 
 
