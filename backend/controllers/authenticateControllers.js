@@ -67,11 +67,13 @@ export const signin = async (req, res, next) => {
 
         const validUser = await User.findOne({username});
         
-        if(!validUser) return next(errorHandler(404, 'user not found!'));
+        if(!validUser){
+            throw{statusCode: 400, message: 'user not found!'}
+        }
 
         const validPassword = bcrypt.compareSync(password, validUser.password);
 
-        if(!validPassword) return next (errorHandler(401, 'Wrong!'));
+        if(!validPassword) return next (errorHandler(401, 'Wrong Password!'));
         
 
         //Authentication of the user
@@ -81,7 +83,7 @@ export const signin = async (req, res, next) => {
         const {password: pass, ...other} = validUser._doc;
         
         //Adding cookie to the browser
-        res.cookie('access_token', token, {httpOnly: true}).status(200).json(other)
+        res.cookie('access_token', token, {httpOnly: true}).status(200).json({success: true, message: 'sign in successful!', ...other})
 
     } catch(error) { 
         

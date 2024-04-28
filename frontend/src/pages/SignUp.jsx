@@ -14,7 +14,7 @@ const SignUp = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -48,19 +48,17 @@ const SignUp = () => {
         const data = await res.json();
 
         console.log(data);
+        
+        if(data.success === true){
+            setLoading(false);
+            toast.success(data.message);
+            navigate('/sign-in');
 
-        if(data.success === false) {
-            
+        } else if (data.success == false){
             setLoading(false);
             setError(data.message);
             toast.error(data.message);
-            return;
         }
-        
-        setLoading(false);
-        setError(null);
-        navigate('/sign-in');
-        toast.success('sign up successful');
 
         
 

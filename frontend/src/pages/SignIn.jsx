@@ -3,18 +3,21 @@ import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from "../Redux/User/userSlice";
 import OAuth from "../components/OAuth";
-import bgimg from "../assets/bgimg.jpg"
+import bgimg from "../assets/bgimg.jpg";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const SignIn = () => {
 
     const [formData, setFormData] = useState({});
 
-    const {loading, error} = useSelector((state) => state.user)
+    const {loading} = useSelector((state) => state.user);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -49,15 +52,16 @@ const SignIn = () => {
 
         console.log(data);
 
-        if(data.success === false) {
-            
+        if(data.success === true) {
+            dispatch(signInSuccess(data));
+            toast.success(data.message);
+            navigate('/');
+
+        } else if (data.success === false){
             dispatch(signInFailure(data.message));
+            toast.error(data.message);
             return;
         }
-        
-        dispatch(signInSuccess(data));
-        
-        navigate('/');
         
 
         } catch(error){
@@ -77,32 +81,34 @@ const SignIn = () => {
             <h1 className="text-3xl md:text-[50px] font-bold text-center my-6 text-white uppercase " >Sign In</h1>
 
 
-    <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
+                <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
 
-        <input type="text" placeholder="username" onChange={handleChange}
-        className="border p-3 rounded-lg focus:outline-none" id="username"/>
+                    <input type="text" placeholder="username" onChange={handleChange}
+                    className="border p-3 rounded-lg focus:outline-none" id="username"/>
 
-        <input type="password" placeholder="password" onChange={handleChange}
-        className="border p-3 rounded-lg focus:outline-none" id="password"/>
+                    <input type="password" placeholder="password" onChange={handleChange}
+                    className="border p-3 rounded-lg focus:outline-none" id="password"/>
 
-        <button disabled={loading} className=" hover:bg-orange-300 bg-orange-400 text-white p-3 rounded-lg uppercase 
-        " >{loading ? 'loading...' : 'sign in'}</button>
+                    <button disabled={loading} className=" hover:bg-orange-300 bg-orange-400 text-white p-3 rounded-lg uppercase 
+                    " >{loading ? 'loading...' : 'sign in'}</button>
 
-        <OAuth/>
-    </form>
+                    <OAuth/>
+                </form>
 
-    <div className="flex gap-2 mt-5 items-center justify-between" >
+                <div className="flex gap-2 mt-5 items-center justify-between" >
 
-        <p className="text-white font-bold bg-orange-400  p-3 rounded-xl ">No account?</p>
-        <Link to={"/sign-up"}>
-            <span className="text-white hover:bg-orange-300 bg-orange-600 font-bold px-5 py-3 rounded-xl">Sign up</span>
-        </Link>
-    </div>
-
-    {error && <p className="text-green-300 font-bold text-xl uppercase mt-5">{error}</p>}
+                    <p className="text-white font-bold bg-orange-400  p-3 rounded-xl ">No account?</p>
+                    <Link to={"/sign-up"}>
+                        <span className="text-white hover:bg-orange-300 bg-orange-600 font-bold px-5 py-3 rounded-xl">Sign up</span>
+                    </Link>
                 </div>
 
+
             </div>
+
+            {<ToastContainer/>}
+
+        </div>
         )
         }
 
