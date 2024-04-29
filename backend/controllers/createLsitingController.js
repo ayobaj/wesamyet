@@ -127,7 +127,7 @@ export const getListings = async (req, res, next) => {
         if(type === undefined || type === 'all' ){
             type = { $in: ['sale', 'rent']};
         }
-
+ 
 
         const searchTerm = req.query.searchTerm || '';
 
@@ -136,16 +136,18 @@ export const getListings = async (req, res, next) => {
         const order = req.query.order || 'desc';
 
         const listings = await Listing.find({
-
-            // regex built in search functionality for mongodb
-            name: {$regex: searchTerm, $options: 'i'},
+            $or: [
+                { name: { $regex: searchTerm, $options: 'i' } }, // Search by name
+                { address: { $regex: searchTerm, $options: 'i' } } // Search by address
+            ],
             offer,
             furnished,
             parking,
             type,
-        }). sort({
+        }).sort({
             [sort]: order
-        }).limit(limit).skip(startIndex)
+        }).limit(limit).skip(startIndex);
+        
 
         return res.status(200).json(listings);
 

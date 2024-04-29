@@ -73,7 +73,9 @@ export const signin = async (req, res, next) => {
 
         const validPassword = bcrypt.compareSync(password, validUser.password);
 
-        if(!validPassword) return next (errorHandler(401, 'Wrong Password!'));
+        if(!validPassword) {
+            throw{ statusCode: 400, message: 'wrong password!'}
+        }
         
 
         //Authentication of the user
