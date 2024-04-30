@@ -96,11 +96,11 @@ const SignUp = () => {
             <OAuth/>
         </form>
 
-        <div className="flex gap-2 mt-5 items-center justify-between" >
+        <div className="flex gap-2 mt-5 items-center" >
 
-            <p className="text-white bg-orange-400  p-3 rounded-xl">Have an account?</p>
+            <p className="text-white">Have an account?</p>
             <Link to={"/sign-in"}>
-                <span className="text-white bg-orange-600 hover:bg-orange-300 py-3 px-5 rounded-xl ">Sign in</span>
+                <span className="text-green-300 font-bold ">Sign in</span>
             </Link>
             
         </div>
