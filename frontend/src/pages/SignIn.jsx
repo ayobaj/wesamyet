@@ -76,7 +76,7 @@ const SignIn = () => {
 
         <div className="  h-screen " style={{ backgroundImage: `url(${bgimg})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
-            <div className="p-3 max-w-lg mx-auto pt-8 md:pt-[100px]">
+            <div className="p-3 max-w-lg mx-auto pt-16 md:pt-[100px]">
 
             <h1 className="text-3xl md:text-[50px] font-bold text-center my-6 text-white uppercase " >Sign In</h1>
 
@@ -95,11 +95,11 @@ const SignIn = () => {
                     <OAuth/>
                 </form>
 
-                <div className="flex gap-2 mt-5 items-center justify-between" >
+                <div className="flex gap-2 mt-5 items-center" >
 
-                    <p className="text-white font-bold bg-orange-400  p-3 rounded-xl ">No account?</p>
+                    <p className="text-white font-bold ">No account?</p>
                     <Link to={"/sign-up"}>
-                        <span className="text-white hover:bg-orange-300 bg-orange-600 font-bold px-5 py-3 rounded-xl">Sign up</span>
+                        <span className="text-green-400 font-bold">Sign up</span>
                     </Link>
                 </div>
 
