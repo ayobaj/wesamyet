@@ -6,6 +6,8 @@ import 'swiper/css/bundle';
 import SwiperCore from 'swiper';
 import {Navigation} from 'swiper/modules';
 import ListingCard from '../components/ListingCard';
+import { FaArrowDown } from "react-icons/fa";
+
 
 
 
@@ -70,6 +72,9 @@ const Home = () => {
                 <Link className="lg:mx-auto p-3 rounded-lg w-fit text-xs sm:text-sm text-white font-bold hover:shadow-lg hover:bg-orange-300 bg-orange-400 " to={"/search"}>
                     Explore dream property
                 </Link>
+                <div className="self-center text-[50px] mt-[50px]">
+                    <FaArrowDown className="text-white "/>
+                </div>
             </div>
 
 

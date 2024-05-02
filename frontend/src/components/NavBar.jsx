@@ -55,7 +55,7 @@ const NavBar = () => {
                 <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="text" className="bg-transparent focus:outline-none w-24 sm:w-64" placeholder="Search..."/>
                 
                 <button>
-                <IoSearchSharp className="text-black"/>
+                <IoSearchSharp className="text-orange-500"/>
                 </button>
 
             </form>
@@ -63,11 +63,11 @@ const NavBar = () => {
             <ul className=" flex space-x-4">
 
                 <Link to="/">
-                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white border-2 p-3 rounded-full ">Home</li>
+                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white  p-3 rounded-full ">Home</li>
                 </Link>
 
                 <Link to="/about">
-                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white border-2 p-3 rounded-full">About</li>
+                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white p-3 rounded-full">About</li>
                 </Link>
 
                 <Link to="/profile">
