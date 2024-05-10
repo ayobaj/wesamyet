@@ -52,7 +52,7 @@ const NavBar = () => {
 
             <form onSubmit={handleSubmit} className="bg-slate-100 p-3 rounded-md flex items-center">
 
-                <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="text" className="bg-transparent focus:outline-none w-24 sm:w-64" placeholder="Search..."/>
+                <input onChange={(e)=>setSearchTerm(e.target.value)} value={searchTerm} type="text" className="bg-transparent focus:outline-none w-24 sm:w-64" placeholder="Search by name or address"/>
                 
                 <button>
                 <IoSearchSharp className="text-orange-500"/>
