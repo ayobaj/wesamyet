@@ -5,11 +5,12 @@ import userRouter from './routes/userRouter.js';
 import authenticateRouter from './routes/authenticateRouter.js';
 import cookieParser from 'cookie-parser';
 import listingRouter from './routes/listingRouter.js'
-
+import cors from 'cors'
 
 const port = 5000;
 const app = express();
 dotenv.config();
+app.use(cors());
 
 
 
