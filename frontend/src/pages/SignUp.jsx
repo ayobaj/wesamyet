@@ -31,7 +31,7 @@ const SignUp = () => {
         try{
             setLoading(true)
 
-        const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/authenticate/signup`,
+        const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/authenticate/signup`,
 
         {
 
