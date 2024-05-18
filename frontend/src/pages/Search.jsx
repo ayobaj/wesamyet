@@ -56,7 +56,7 @@ const  Search = () => {
         setLoading(true);
         setShowMore(false);
         const searchQuery = urlParams.toString();
-        const res = await fetch(`/backend/listing/get?${searchQuery}`);
+        const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/get?${searchQuery}`);
         const data = await res.json();
         if (data.length > 8) {
             setShowMore(true);

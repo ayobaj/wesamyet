@@ -133,7 +133,7 @@ import {Link}  from 'react-router-dom'
             try {
                 dispatch(signOutStart());
 
-                const res = await fetch('/backend/authenticate/signout');
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/authenticate/signout`);
         
                 const data = await res.json();
         

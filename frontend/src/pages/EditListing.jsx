@@ -157,7 +157,7 @@ const EditListing = () => {
             setLoading(true);
             setError(false);
     
-            const res = await fetch(`/backend/listing/edit/${params.listingId}`, {
+            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/edit/${params.listingId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

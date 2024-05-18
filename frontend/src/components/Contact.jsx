@@ -13,7 +13,7 @@ const Contact = ({ listing }) => {
     useEffect(() => {
         const fetchOwner = async () => {
             try {
-                const res = await fetch(`/backend/user/${listing.userRef}`);
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/user/${listing.userRef}`);
                 const data = await res.json();
                 setOwner(data);
             } catch(error) {

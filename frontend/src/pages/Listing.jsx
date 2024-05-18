@@ -46,7 +46,7 @@ const Listing = () => {
 
                 setLoading(true);
 
-                const res = await fetch(`/backend/listing/get/${params.listingId}`);
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/get/${params.listingId}`);
 
                 const data = await res.json();
 

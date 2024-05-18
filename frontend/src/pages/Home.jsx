@@ -43,7 +43,7 @@ const Home = () => {
 
         const fetchSaleListings = async () => {
             try {
-                const res = await fetch('/backend/listing/get?type=sale&limit=4');
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/get?type=sale&limit=4`);
                 const data = await res.json();
                 setSaleListings(data);
             } catch (error) {

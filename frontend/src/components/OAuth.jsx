@@ -15,7 +15,7 @@ const OAuth = () => {
             const auth = getAuth(app);
             const result = await signInWithPopup(auth, provider);
             
-            const res = await fetch('/backend/authenticate/google', {
+            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/authenticate/google`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

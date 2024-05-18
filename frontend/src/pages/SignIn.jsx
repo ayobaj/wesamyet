@@ -34,7 +34,7 @@ const SignIn = () => {
         try{
             dispatch(signInStart());
 
-        const res = await fetch('/backend/authenticate/signin',
+        const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/authenticate/signin`,
 
         {
 

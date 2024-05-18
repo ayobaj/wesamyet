@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/backend':{
-        target: 'http://localhost:5000',
+        target: import.meta.env.VITE_ENVIRONMENT,
         secure: false,
       }
     }
