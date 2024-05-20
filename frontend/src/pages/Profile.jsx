@@ -153,7 +153,7 @@ import {Link}  from 'react-router-dom'
             try {
                 setShowListingError(false);
         
-                const res = await fetch(`/backend/user/listing/${currentUser._id}`);
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/user/listing/${currentUser._id}`);
         
                 const data = await res.json();
         
