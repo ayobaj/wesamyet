@@ -39,7 +39,7 @@ const EditListing = () => {
         const fetchListing = async () => {
             try {
                 const listingId = params.listingId;
-                const res = await fetch(`/backend/listing/get/${listingId}`);
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/listing/get/${listingId}`);
                 const data = await res.json();
                 
                 if (data.success === false) {
@@ -157,7 +157,7 @@ const EditListing = () => {
             setLoading(true);
             setError(false);
     
-            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/edit/${params.listingId}`, {
+            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/listing/edit/${params.listingId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

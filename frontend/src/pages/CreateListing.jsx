@@ -134,7 +134,7 @@ const CreateListing = () => {
             setLoading(true);
             setError(false);
     
-            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/listing/create`, {
+            const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/listing/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
