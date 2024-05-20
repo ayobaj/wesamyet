@@ -77,7 +77,7 @@ import {Link}  from 'react-router-dom'
             try{
                 dispatch(updateUserStart());
 
-                const res = await fetch(`/backend/user/update/${currentUser._id}`,{
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/user/update/${currentUser._id}`,{
 
                     method: 'POST',
 
@@ -107,7 +107,7 @@ import {Link}  from 'react-router-dom'
             try{
                 dispatch(deleteUserStart());
 
-                const res = await fetch(`/backend/user/delete/${currentUser._id}`,
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/user/delete/${currentUser._id}`,
                 {
                     method: 'DELETE',
                 });

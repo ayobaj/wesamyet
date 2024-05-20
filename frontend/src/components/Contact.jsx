@@ -42,6 +42,8 @@ const Contact = ({ listing }) => {
                     <Link to={`mailto: ${owner.email} ? subject = Regarding ${listing.name}&body=${message}`}
                     className="bg-blue-700 text-white text-center p-3 uppercase rounded-lg hover:shadow-md"> Send Message
                     </Link>
+
+                    
                 </div>
             )}
         </div>
