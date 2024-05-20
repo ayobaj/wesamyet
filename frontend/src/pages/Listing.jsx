@@ -37,7 +37,6 @@ const Listing = () => {
     const {currentUser} = useSelector((state) => state.user)
 
     const[contact, setContact] = useState(false);
-    
 
     useEffect(()=>{
 
