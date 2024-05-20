@@ -137,8 +137,9 @@ const  Search = () => {
 
     return (
 
-    <div className='flex flex-col md:flex-row'>
-        <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
+    <div className='flex flex-col sm:flex-row '>
+        
+        <div className=' p-7  border-b-2 md:border-r-2 md:min-h-screen'>
 
         <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
 
@@ -278,7 +279,7 @@ const  Search = () => {
                     )
                 }
 
-                <div className='mx-auto md:flex p-7 gap-4 space-y-4 flex-wrap lg:items-center'>
+                <div className='mx-auto flex flex-col sm:flex-row p-7 gap-6 flex-wrap sm:mx-auto'>
                     
                 {
                     !loading && listings && listings.map((listing) =>  <ListingCard key={listing._id} listing={listing} />)

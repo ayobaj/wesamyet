@@ -59,20 +59,20 @@ const Home = () => {
     return (
         <div >
             {/* top */}
-            <div className="flex flex-col gap-6 p-28 px-3 h-screen" style={{ backgroundImage: `url(${home})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+            <div className="flex flex-col gap-6 p-28 px-3 min-h-screen" style={{ backgroundImage: `url(${home})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
                 <h1 className="text-white font-bold text-3xl lg:text-6xl lg:mx-auto">
                     Discover Your Dream <br/>
                     <span className="text-orange-400 lg:ml-[70px]">Property</span> Today!
                 </h1>
-                <div className=" text-xs text-white sm:text-sm lg:mx-auto ">
+                <div className="  text-white sm:text-xl lg:mx-auto ">
                     Wesamyet is the best property site to acquire your dream property.
                     <br/>
-                    <span className="lg:ml-[70px]">We have the property that will meet needs</span>
+                    <span className="lg:ml-[70px]">We have the property that will meet your needs</span>
                 </div>
-                <Link className="lg:mx-auto p-3 rounded-lg w-fit text-xs sm:text-sm text-white font-bold hover:shadow-lg hover:bg-orange-300 bg-orange-400 " to={"/search"}>
+                <Link className="mt-10 sm:mt-0 mx-auto p-3 rounded-lg w-fit text-xs sm:text-sm text-white font-bold hover:shadow-lg hover:bg-orange-300 bg-orange-400 " to={"/search"}>
                     Explore dream property
                 </Link>
-                <div className="self-center text-[50px] mt-[50px]">
+                <div className="self-center text-[50px] mt-[80px]">
                     <FaArrowDown className="text-white "/>
                 </div>
             </div>
