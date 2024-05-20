@@ -174,7 +174,7 @@ import {Link}  from 'react-router-dom'
         const handleListingDelete = async (listingId) => {
             try{
 
-                const res = await fetch(`/backend/listing/delete/${listingId}`, {
+                const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/listing/delete/${listingId}`, {
 
                     method: 'DELETE',
 
