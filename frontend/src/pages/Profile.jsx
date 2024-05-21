@@ -202,7 +202,7 @@ import {Link}  from 'react-router-dom'
 
             <h1 className="text-3xl font-semibold text-center "></h1>
 
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-4 p-3">
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
 
                 <input type="file" ref={fileReference} hidden accept="image/*" onChange={(e)=> setFile(e.target.files[0])}/>
 
