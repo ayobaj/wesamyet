@@ -75,20 +75,25 @@ const SignIn = () => {
 
     return (
 
-        <div className="  h-screen " style={{ backgroundImage: `url(${bgimg})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+        <div className="bg-green-200 min-h-screen">
 
-            <div className="p-3 max-w-lg mx-auto pt-16 md:pt-[100px]">
+            <div className="p-3 max-w-lg mx-auto pt-12 md:pt-[80px] ">
 
-            <h1 className="text-3xl md:text-[50px] font-bold text-center my-6 text-white uppercase " >Sign In</h1>
+            <h1 className="text-3xl md:text-[35px] font-bold text-center text-green-700 my-6 uppercase " >Sign In</h1>
 
 
-                <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
-
+                <form className="flex flex-col gap-4 " onSubmit={handleSubmit}>
+                    <div className="flex flex-col">
+                    <p>Username</p>
                     <input type="text" placeholder="username" onChange={handleChange}
                     className="border p-3 rounded-lg focus:outline-none" id="username"/>
+                    </div>
 
+                    <div className="flex flex-col">
+                    <p>Password</p>
                     <input type="password" placeholder="password" onChange={handleChange}
                     className="border p-3 rounded-lg focus:outline-none" id="password"/>
+                    </div>
 
                     <button disabled={loading} className=" hover:bg-orange-300 bg-orange-400 text-white p-3 rounded-lg uppercase 
                     " >{loading ? 'loading...' : 'sign in'}</button>
@@ -96,11 +101,11 @@ const SignIn = () => {
                     <OAuth/>
                 </form>
 
-                <div className="flex gap-2 mt-5 items-center" >
+                <div className="flex gap-2 mt-5 items-center">
 
-                    <p className="text-white font-bold ">No account?</p>
+                    <p className=" ">No account?</p>
                     <Link to={"/sign-up"}>
-                        <span className="text-green-400 font-bold">Sign up</span>
+                        <span className="text-green-800">Sign up</span>
                     </Link>
                 </div>
 

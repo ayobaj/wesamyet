@@ -31,7 +31,7 @@ const SignUp = () => {
         try{
             setLoading(true)
 
-        const res = await fetch(`http://localhost:5000/backend/authenticate/signup`,
+        const res = await fetch(`${import.meta.env.VITE_ENVIRONMENT}/backend/authenticate/signup`,
 
         {
 
@@ -73,22 +73,30 @@ const SignUp = () => {
 
 
     return (
-        <div className=" h-screen" style={{ backgroundImage: `url(${bgimg})`, backgroundSize: 'cover', backgroundPosition: 'center', }}>
+        <div className="min-h-screen bg-green-200">
 
-            <div className="p-3 max-w-lg mx-auto pt-8 md:pt-[100px]">
-            <h1 className="text-3xl md:text-[50px]  font-bold text-center my-6 text-white uppercase">Sign Up</h1>
+            <div className="p-3 max-w-lg mx-auto pt md:pt-[px]">
+            <h1 className="text-3xl md:text-[35px]  font-bold text-center my-6 text-green-700 uppercase">Sign Up</h1>
 
 
         <form className="flex flex-col space-y-4 " onSubmit={handleSubmit}>
+            <div className="flex flex-col">
+                <p>Username</p>
+                <input type="text" placeholder="username" onChange={handleChange}
+                className="border p-3 rounded-lg focus:outline-none" id="username"/>
+            </div>
 
-            <input type="text" placeholder="username" onChange={handleChange}
-            className="border p-3 rounded-lg focus:outline-none" id="username"/>
-
+            <div className="flex flex-col">
+            <p>Email</p>
             <input type="email" placeholder="email" onChange={handleChange}
             className="border p-3 rounded-lg focus:outline-none" id="email"/>
+            </div>
 
-            <input type="password" placeholder="password" onChange={handleChange}
-            className="border p-3 rounded-lg focus:outline-none" id="password"/>
+            <div className="flex flex-col">
+                <p>Password</p>
+                <input type="password" placeholder="password" onChange={handleChange}
+                className="border p-3 rounded-lg focus:outline-none" id="password"/>
+            </div>
 
             <button disabled={loading} className=" hover:bg-orange-300 bg-orange-400 text-white p-3 rounded-lg uppercase  
             " >{loading ? 'loading...' : 'sign up'}</button>
@@ -98,9 +106,9 @@ const SignUp = () => {
 
         <div className="flex gap-2 mt-5 items-center" >
 
-            <p className="text-white">Have an account?</p>
+            <p className="">Have an account?</p>
             <Link to={"/sign-in"}>
-                <span className="text-green-300 font-bold ">Sign in</span>
+                <span className="text-green-600 ">Sign in</span>
             </Link>
             
         </div>

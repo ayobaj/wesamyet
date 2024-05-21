@@ -279,7 +279,7 @@ const  Search = () => {
                     )
                 }
 
-                <div className='mx-auto flex flex-col sm:flex-row p-7 gap-6 flex-wrap sm:mx-auto'>
+                <div className=' flex flex-col sm:flex-row p-7 gap-6 flex-wrap mx-auto'>
                     
                 {
                     !loading && listings && listings.map((listing) =>  <ListingCard key={listing._id} listing={listing} />)

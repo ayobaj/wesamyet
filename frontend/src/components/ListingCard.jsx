@@ -7,7 +7,7 @@ import { FaNairaSign } from 'react-icons/fa6';
 
 export default function ListingCard({ listing }) {
 return (
-<div className='bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-[280px] sm:w-[260px] mx-auto'>
+<div className='bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-[260px] sm:w-[260px] mx-auto'>
     <Link to={`/listing/${listing._id}`}>
     <img
         src={

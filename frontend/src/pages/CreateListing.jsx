@@ -176,7 +176,7 @@ const CreateListing = () => {
             value={formData.name}
             type="text"
             placeholder="Name"
-            className="border-[10px] p-3 rounded-lg"
+            className="border-[10px] p-3 rounded-lg focus: outline-none"
             id="name"
             maxLength="50"
             minLength="4"
@@ -188,7 +188,7 @@ const CreateListing = () => {
             value={formData.description}
             type="text"
             placeholder="Description"
-            className="border-[10px] p-3 rounded-lg"
+            className="border-[10px] p-3 rounded-lg focus: outline-none"
             id="description"
             required
         />
@@ -198,7 +198,7 @@ const CreateListing = () => {
             value={formData.address}
             type="text"
             placeholder="Address"
-            className="border-[10px] p-3 rounded-lg"
+            className="border-[10px] p-3 rounded-lg focus: outline-none"
             id="address"
             required
         />

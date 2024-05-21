@@ -63,15 +63,15 @@ const NavBar = () => {
             <ul className=" flex space-x-4">
 
                 <Link to="/">
-                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white  p-3 rounded-full ">Home</li>
+                <li className="hidden sm:inline text-orange-400 font-bold  hover:text-orange-300 ">Home</li>
                 </Link>
 
                 <Link to="/about">
-                <li className="hidden sm:inline text-orange-400 font-bold hover:bg-orange-400 hover:text-white p-3 rounded-full">About</li>
+                <li className="hidden sm:inline text-orange-400 font-bold hover:text-orange-300">About</li>
                 </Link>
 
                 <Link to="/profile">
-                    {currentUser ? (<img className="rounded-full w-7  object-coverh-7" src={currentUser.avatar} alt="profile"/>) : (<li className=" sm:inline  text-orange-400 font-bold hover:bg-orange-400 hover:text-white p-3 rounded-full ">{''}Sign in</li>)}
+                    {currentUser ? (<img className="rounded-full w-7  object-cover h-7" src={currentUser.avatar} alt="profile"/>) : (<li className=" sm:inline  text-orange-400 font-bold hover:text-orange-300 ">{''}Sign in</li>)}
                 </Link>
 
             </ul>

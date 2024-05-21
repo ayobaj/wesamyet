@@ -202,7 +202,7 @@ import {Link}  from 'react-router-dom'
 
             <h1 className="text-3xl font-semibold text-center "></h1>
 
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+            <form onSubmit={handleSubmit} className="flex flex-col space-y-4 p-3">
 
                 <input type="file" ref={fileReference} hidden accept="image/*" onChange={(e)=> setFile(e.target.files[0])}/>
 
@@ -230,7 +230,7 @@ import {Link}  from 'react-router-dom'
                 <Link className="bg-orange-400  text-white p-3 rounded-lg uppercase text-center hover:opacity-85" to={"/create-listing"}>create listing</Link>
             </form>
 
-            <div className=" flex justify-between mt-5">
+            <div className=" flex justify-between mt-5 p-2">
                 <span onClick={handleDelete} className="text-red-700 cursor-pointer">Delete Account</span>
                 <span onClick={handleSignOut} className="text-red-700 cursor-pointer">Sign Out</span>
             </div>
