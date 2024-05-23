@@ -28,9 +28,6 @@ import {Link}  from 'react-router-dom'
 
         const dispatch = useDispatch()
 
-        console.log(filePercent)
-
-        console.log(fileUploadError)
 
 
         

@@ -70,7 +70,9 @@ const Listing = () => {
         };
 
         fetchListing()
-    }, [params.listingId])
+    }, [params.listingId]);
+
+    
 
 
 return (
